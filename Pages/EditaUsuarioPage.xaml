@@ -2,11 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tela_Login.Pages.EditaUsuarioPage"
-             Title="EditaUsuarioPage">
-    <VerticalStackLayout>
+             Title="EditaUsuarioPage"
+             NavigationPage.HasNavigationBar="False">
+    
+    <StackLayout VerticalOptions="CenterAndExpand"
+                 Margin="20">
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="CADASTRO"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+        <Label 
+            Text="E-MAIL"/>
+        <Entry 
+            Placeholder="Digite seu e-mail" 
+            x:Name="txtEmail"/>
+        <Label 
+            Text="SENHA"/>
+        <Entry 
+            Placeholder="Digite sua senha" 
+            x:Name="txtSenha"/>
+
+        <Button x:Name="btnCadastrar"
+                Margin="10"
+                Clicked="btnCadastrar_Clicked"
+            Text="Cadastrar"/>
+    </StackLayout>
 </ContentPage>
