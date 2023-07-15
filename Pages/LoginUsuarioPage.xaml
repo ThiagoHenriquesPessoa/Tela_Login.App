@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tela_Login.Pages.LoginUsuarioPage"
-             Title="LoginUsuarioPage">
+             Title="LoginUsuarioPage"
+             NavigationPage.HasNavigationBar="False">
+    
     <StackLayout VerticalOptions="CenterAndExpand"
                  Margin="20">
         <Label 
@@ -23,7 +25,7 @@
 
         <Button x:Name="btnEntrar"
                 Margin="10"
-                Clicked="btnRegistrar_Clicked"
+                Clicked="btnEntrar_Clicked"
             Text="Entrar"/>
         <Button x:Name="btnRegistrar"
                 Margin="10"
