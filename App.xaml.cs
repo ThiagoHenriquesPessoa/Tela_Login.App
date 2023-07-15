@@ -1,4 +1,6 @@
-﻿namespace Tela_Login;
+﻿using Tela_Login.Pages;
+
+namespace Tela_Login;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		MainPage = new LoginUsuarioPage();
 	}
 }
