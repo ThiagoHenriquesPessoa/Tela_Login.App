@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tela_Login.Pages.LoginUsuarioPage"
              Title="LoginUsuarioPage">
-    <VerticalStackLayout>
+    <StackLayout VerticalOptions="CenterAndExpand"
+                 Margin="20">
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="LOGIN"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+        
+        <Label 
+            Text="E-MAIL"/>
+        <Entry 
+            Placeholder="Digite seu e-mail" 
+            x:Name="txtEmail"/>        
+        <Label 
+            Text="SENHA"/>
+        <Entry 
+            Placeholder="Digite sua senha" 
+            x:Name="txtSenha"/>
+
+        <Button x:Name="btnEntrar"
+                Margin="10"
+                Clicked="btnRegistrar_Clicked"
+            Text="Entrar"/>
+        <Button x:Name="btnRegistrar"
+                Margin="10"
+                Clicked="btnRegistrar_Clicked"
+            Text="Registre-se"/>
+
+    </StackLayout>
 </ContentPage>
