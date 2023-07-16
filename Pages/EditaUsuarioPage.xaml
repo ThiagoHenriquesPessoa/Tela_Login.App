@@ -16,16 +16,23 @@
             Text="E-MAIL"/>
         <Entry 
             Placeholder="Digite seu e-mail" 
-            x:Name="txtEmail"/>
+            x:Name="txtEmail"
+            Text="{Binding Email}"/>
         <Label 
             Text="SENHA"/>
         <Entry 
             Placeholder="Digite sua senha" 
-            x:Name="txtSenha"/>
+            x:Name="txtSenha"
+            Text="{Binding Senha}"/>
 
         <Button x:Name="btnCadastrar"
                 Margin="10"
                 Clicked="btnCadastrar_Clicked"
             Text="Cadastrar"/>
+
+        <Button x:Name="btnVoltar"
+                Margin="10"
+                Clicked="btnVoltar_Clicked"
+            Text="Voltar"/>
     </StackLayout>
 </ContentPage>
