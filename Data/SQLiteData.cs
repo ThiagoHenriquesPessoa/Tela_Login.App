@@ -5,13 +5,19 @@ namespace Tela_Login.Data
 {
     public class SQLiteData
     {
-        readonly SQLiteAsyncConnection _connection;
-        public UsuarioData UsusarioDatable { get; set; }
-        public SQLiteData(string path)
+        static SQLiteAsyncConnection _bancoDados;
+        public static SQLiteAsyncConnection BancoDados
         {
-            _connection = new SQLiteAsyncConnection(path);
-            _connection.CreateTableAsync<Usuario>();
-            UsusarioDatable = new UsuarioData(_connection);
+            get
+            {
+                if (_bancoDados == null)
+                {
+                    _bancoDados = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+
+                    //_bancoDados = new SQLiteData(DependencyService.Get<ISQLiteDB>().SQLiteLocalPath("Dados.db3"));	
+                }
+                return _bancoDados;
+            }
         }
     }
 }

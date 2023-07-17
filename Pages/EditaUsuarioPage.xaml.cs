@@ -1,3 +1,5 @@
+using Microsoft.Maui.ApplicationModel.Communication;
+using Tela_Login.Data;
 using Tela_Login.Model;
 
 namespace Tela_Login.Pages;
@@ -19,11 +21,17 @@ public partial class EditaUsuarioPage : ContentPage
 			await DisplayAlert("Atenção", "Preencha todas as informações", "Fechar");
 			return;
 		}
-		var cadastro = await App.BancoDados.UsusarioDatable.SalvaUsuarios(_usuario);
-		if (cadastro>0)
-		{
-			await Navigation.PopAsync();
-		}
+		var cadastro = await SQLiteData.BancoDados.CreateTableAsync<Usuario>();
+		//if (cadastro>0)
+  //      {
+  //          await Navigation.PopAsync();
+		//}
+		var usuario = new Usuario 
+		{ 
+			Email = _usuario.Email, 
+			Senha = _usuario.Senha 
+		};
+        await new UsuarioData(SQLiteData.BancoDados).SalvaUsuarios(usuario);
     }
 
     private async void btnVoltar_Clicked(object sender, EventArgs e)

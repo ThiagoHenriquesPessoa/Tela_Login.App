@@ -17,7 +17,7 @@ namespace Tela_Login.Data
             return lista;
         }
 
-        public Task<Usuario> ObtemUsuarios(string email, string senha)
+        public Task<Usuario> ObtemUsuario(string email, string senha)
         {
             var usuario = _connectionDB.Table<Usuario>().Where(x => x.Email == email && x.Senha == senha).FirstOrDefaultAsync();
             return usuario;
@@ -25,14 +25,16 @@ namespace Tela_Login.Data
 
         public async Task<int> SalvaUsuarios(Usuario usuario)
         {
-            var usuarioIsSalvo = await ObtemUsuarioID(usuario.Id);
+            var usuarioIsSalvo = await ObtemUsuario(usuario.Email, usuario.Senha);
             if (usuarioIsSalvo == null)
             {
+                 
                 return await _connectionDB.InsertAsync(usuario);
             }
             else
             {
-                return await _connectionDB.UpdateAsync(usuario);
+                Guid num = usuarioIsSalvo.Id;
+                return 0;
             }
         }
 
@@ -42,7 +44,7 @@ namespace Tela_Login.Data
             return usuario;
         }
 
-        public async Task<int> SalvaUsuarios(int id)
+        public async Task<int> SalvaUsuarios(Guid id)
         {
             return await _connectionDB.DeleteAsync(id);
         }
