@@ -28,6 +28,10 @@ public partial class LoginUsuarioPage : ContentPage
                 await DisplayAlert("Atenção", "E-mail ou Senha invalidos", "Fechar");
                 return;
             }
+            else
+            {
+                await Navigation.PushAsync(new HomeUsuarioPage());
+            }
         }
         else
         {
